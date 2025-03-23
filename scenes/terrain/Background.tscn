@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/backgrounds/layer2 400x300.png" type="Texture" id=1]
+[ext_resource path="res://assets/backgrounds/layer3 400x300.png" type="Texture" id=2]
+[ext_resource path="res://assets/backgrounds/layer0 400x300.png" type="Texture" id=3]
+[ext_resource path="res://assets/backgrounds/layer1 400x300.png" type="Texture" id=4]
+
+[node name="Background" type="CanvasLayer"]
+
+[node name="Clouds" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+
+[node name="Layer0" type="ParallaxLayer" parent="Clouds"]
+motion_scale = Vector2( 0, 1 )
+motion_mirroring = Vector2( 400, 0 )
+
+[node name="Sprite" type="Sprite" parent="Clouds/Layer0"]
+position = Vector2( 0, -30 )
+texture = ExtResource( 3 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 400, 300 )
+
+[node name="Layer1" type="ParallaxLayer" parent="Clouds"]
+motion_scale = Vector2( 0.2, 1 )
+motion_mirroring = Vector2( 400, 0 )
+
+[node name="Sprite" type="Sprite" parent="Clouds/Layer1"]
+position = Vector2( 0, -30 )
+texture = ExtResource( 4 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 400, 300 )
+
+[node name="Layer2" type="ParallaxLayer" parent="Clouds"]
+motion_scale = Vector2( 0.3, 1 )
+motion_mirroring = Vector2( 400, 0 )
+
+[node name="Sprite" type="Sprite" parent="Clouds/Layer2"]
+position = Vector2( 0, -30 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 400, 300 )
+
+[node name="Layer3" type="ParallaxLayer" parent="Clouds"]
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 400, 0 )
+
+[node name="Sprite" type="Sprite" parent="Clouds/Layer3"]
+position = Vector2( 0, -30 )
+texture = ExtResource( 2 )
+centered = false
+region_rect = Rect2( 0, 0, 400, 300 )

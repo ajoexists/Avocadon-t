@@ -1,0 +1,60 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/buttons/right 32x32.png" type="Texture" id=1]
+[ext_resource path="res://assets/buttons/left pressed 32x32.png" type="Texture" id=2]
+[ext_resource path="res://assets/buttons/avocado pressed 16x16.png" type="Texture" id=3]
+[ext_resource path="res://assets/buttons/pit 16x16.png" type="Texture" id=4]
+[ext_resource path="res://assets/buttons/avocado 16x16.png" type="Texture" id=5]
+[ext_resource path="res://assets/buttons/right pressed 32x32.png" type="Texture" id=6]
+[ext_resource path="res://assets/buttons/left 32x32.png" type="Texture" id=7]
+[ext_resource path="res://assets/buttons/jump 32x32.png" type="Texture" id=8]
+[ext_resource path="res://assets/buttons/jump pressed 32x32.png" type="Texture" id=9]
+[ext_resource path="res://assets/buttons/pit pressed 16x16.png" type="Texture" id=10]
+[ext_resource path="res://scripts/gameplay/Touch.gd" type="Script" id=11]
+[ext_resource path="res://assets/buttons/back temp 32x32.png" type="Texture" id=12]
+
+[node name="Touch" type="CanvasLayer"]
+script = ExtResource( 11 )
+
+[node name="Left" type="TouchScreenButton" parent="."]
+modulate = Color( 1, 1, 1, 0.294118 )
+position = Vector2( 24, 144 )
+normal = ExtResource( 7 )
+pressed = ExtResource( 2 )
+action = "pete_left"
+
+[node name="Right" type="TouchScreenButton" parent="."]
+modulate = Color( 1, 1, 1, 0.294118 )
+position = Vector2( 64, 144 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 6 )
+action = "pete_right"
+
+[node name="Jump" type="TouchScreenButton" parent="."]
+modulate = Color( 1, 1, 1, 0.294118 )
+position = Vector2( 296, 144 )
+normal = ExtResource( 8 )
+pressed = ExtResource( 9 )
+action = "pete_jump"
+
+[node name="Avocado" type="TouchScreenButton" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.294118 )
+position = Vector2( 304, 120 )
+normal = ExtResource( 5 )
+pressed = ExtResource( 3 )
+action = "avocado_switch"
+
+[node name="Pit" type="TouchScreenButton" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.294118 )
+position = Vector2( 304, 120 )
+normal = ExtResource( 4 )
+pressed = ExtResource( 10 )
+action = "pit_switch"
+
+[node name="Back" type="TouchScreenButton" parent="."]
+modulate = Color( 1, 1, 1, 0.294118 )
+position = Vector2( 16, 16 )
+normal = ExtResource( 12 )
+action = "ui_cancel"

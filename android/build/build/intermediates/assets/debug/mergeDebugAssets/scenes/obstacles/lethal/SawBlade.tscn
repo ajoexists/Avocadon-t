@@ -1,0 +1,62 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Assets/Obstacles/saw blade 24x26.png" type="Texture" id=1]
+[ext_resource path="res://scripts/obstacles/lethal/SawBlade.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Others/2d_lights_and_shadows_neutral_point_light.webp" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 24, 26 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 24, 0, 24, 26 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 0, 24, 26 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 72, 0, 24, 26 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "Spin",
+"speed": 16.0
+} ]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 1.41421
+
+[sub_resource type="CircleShape2D" id=7]
+radius = 12.0
+
+[node name="SawBlade" type="Area2D"]
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 6 )
+animation = "Spin"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+
+[node name="Detect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detect"]
+visible = false
+shape = SubResource( 7 )
+
+[node name="Light2D" type="Light2D" parent="."]
+scale = Vector2( 0.598633, 0.598633 )
+texture = ExtResource( 3 )
+texture_scale = 0.4
+energy = 0.5
+shadow_enabled = true
+
+[connection signal="body_entered" from="Detect" to="." method="_on_Detect_body_entered"]

@@ -1,0 +1,51 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Assets/Buttons/jump 16x16.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Buttons/pit 16x16.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Buttons/avocado 16x16.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Buttons/right 16x16.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Buttons/left 16x16.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Buttons/left pressed 16x16.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Buttons/avocado pressed 16x16.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Buttons/jump pressed 16x16.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Buttons/pit pressed 16x16.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Buttons/right pressed 16x16.png" type="Texture" id=10]
+[ext_resource path="res://scripts/gameplay/TouchControls.gd" type="Script" id=11]
+
+[node name="TouchControls" type="CanvasLayer"]
+script = ExtResource( 11 )
+
+[node name="Left" type="TouchScreenButton" parent="."]
+position = Vector2( 32, 168 )
+normal = ExtResource( 5 )
+pressed = ExtResource( 10 )
+action = "pete_left"
+
+[node name="Right" type="TouchScreenButton" parent="."]
+position = Vector2( 56, 168 )
+normal = ExtResource( 4 )
+pressed = ExtResource( 6 )
+action = "pete_right"
+
+[node name="Jump" type="TouchScreenButton" parent="."]
+position = Vector2( 280, 160 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 8 )
+action = "pete_jump"
+
+[node name="PitSwitch" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 304, 160 )
+normal = ExtResource( 2 )
+pressed = ExtResource( 9 )
+action = "pit_switch"
+
+[node name="AvocadoSwitch" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 304, 160 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 7 )
+action = "avocado_switch"
+
+[connection signal="pressed" from="PitSwitch" to="." method="_on_PitSwitch_pressed"]
+[connection signal="pressed" from="AvocadoSwitch" to="." method="_on_AvocadoSwitch_pressed"]
